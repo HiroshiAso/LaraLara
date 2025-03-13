@@ -6,7 +6,7 @@
     "service": "app",
     "shutdownAction": "stopCompose",
     "extensions": [
-		"editorconfig.editorconfig",
+        "editorconfig.editorconfig",
         "ryannaddy.laravel-artisan",
         "amiralizadeh9480.laravel-extra-intellisense",
         "stef-k.laravel-goto-controller",
@@ -17,7 +17,7 @@
         "esbenp.prettier-vscode",
         "cweijan.dbclient-jdbc",
         "CoenraadS.bracket-pair-colorizer"
-	],
+    ],
     "settings": {
         "#terminal.integrated.shell.linux": "/bin/bash"
     },
@@ -25,10 +25,10 @@
     "forwardPorts": [80],
 
     // Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && yarn install && yarn run development",
-	"portsAttributes": {
-		"80": {
-			"label": "HTTP"
-		}
-	},
+    "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && yarn install && yarn run development && CODESPACE_URL=\"https://$CODESPACE_NAME-80.app.github.dev\" && sed -i \"s|APP_URL=http://localhost|APP_URL=$CODESPACE_URL|\" .env && echo 'APP_URL updated to:' && grep APP_URL .env",
+    "portsAttributes": {
+        "80": {
+            "label": "HTTP"
+        }
+    }
 }
