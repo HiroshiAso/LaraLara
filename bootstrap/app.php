@@ -11,8 +11,14 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        // TrustProxiesミドルウェアを追加（作成後にコメントを外す）
+        // $middleware->append(\App\Http\Middleware\TrustProxies::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
-    })->create();
+    })
+    ->withProviders([
+        // URLサービスプロバイダーを追加（作成後にコメントを外す）
+        // \App\Providers\UrlServiceProvider::class,
+    ])
+    ->create();

@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://cautious-space-train-x55x5jvxrj4rfpg55-80.app.github.dev'),
 
     /*
     |--------------------------------------------------------------------------

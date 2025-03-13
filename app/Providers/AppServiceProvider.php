@@ -19,6 +19,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        if (env('APP_ENV') !== 'local') {
+            $appUrl = env('APP_URL');
+            URL::forceRootUrl($appUrl);
+
+            // HTTPSを強制する場合
+            if (str_starts_with($appUrl, 'https://')) {
+                URL::forceScheme('https');
+            }
+        }
     }
 }
