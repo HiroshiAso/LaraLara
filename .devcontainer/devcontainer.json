@@ -25,7 +25,7 @@
     "forwardPorts": [80],
 
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "cp .env.example .env  && CODESPACE_URL='https://$CODESPACE_NAME-80.app.github.dev' && sed -i 's|APP_URL=http://localhost|APP_URL=$CODESPACE_URL|' .env && composer install && php artisan key:generate && yarn install && yarn run development",
+    "postCreateCommand": "cp .env.example .env  && CODESPACE_URL=\"https://$CODESPACE_NAME-80.app.github.dev\" && sed -i \"s|APP_URL=http://localhost|APP_URL=$CODESPACE_URL|\" .env && composer install && php artisan key:generate && yarn install && yarn run development",
     "portsAttributes": {
         "80": {
             "label": "HTTP"
